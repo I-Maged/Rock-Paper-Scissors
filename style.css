@@ -19,6 +19,10 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--primary-accent);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
 }
 
 .header {
@@ -30,18 +34,28 @@ body {
   color: var(--primary-text);
 }
 h1 {
-  font-size: 42px;
+  font-size: 52px;
   font-style: italic;
   font-weight: 700;
 }
 h3 {
-  font-size: 24px;
+  font-size: 36px;
   font-style: italic;
   font-weight: 700;
 }
 
+.message,
+.result {
+  color: var(--primary-text);
+  font-size: 24px;
+  text-align: center;
+  margin: 16px auto;
+}
+
 .content {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
 }
 
@@ -59,4 +73,15 @@ img {
   object-fit: scale-down;
   width: 200px;
   height: 200px;
+}
+
+.footer {
+  background-color: var(--secondary-accent);
+  color: var(--primary-text);
+  font-size: 16px;
+  text-align: center;
+  padding: 8px;
+}
+.heart {
+  color: #ff0000;
 }
