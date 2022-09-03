@@ -1,32 +1,46 @@
 let sections = document.querySelectorAll('.section');
 let messageDisplay = document.querySelector('.message');
 let resultDisplay = document.querySelector('.result');
-let rockSpan = document.querySelector('.rock');
-let paperSpan = document.querySelector('.paper');
-let scissorSpan = document.querySelector('.scissor');
+let playerScoreDisplay = document.querySelector('.player-score');
+let computerScoreDisplay = document.querySelector('.computer-score');
+let playerScore = 0;
+let computerScore = 0;
 
-function randomPick() {
-  let randomArray = ['rock', 'paper', 'scissor'];
+function getComputerChoice() {
+  let choiceArray = ['rock', 'paper', 'scissor'];
 
-  return randomArray[Math.floor(Math.random() * 3)];
+  return choiceArray[Math.floor(Math.random() * 3)];
 }
 
-function displayChoices(playerPick, pcPick) {
-  console.log(`You chose ${playerPick}. Computer chose ${pcPick}`);
-  messageDisplay.textContent = `You chose ${playerPick}. Computer chose ${pcPick}`;
+function playRound(playerSelection, computerSelection) {
+  messageDisplay.textContent = `You chose ${playerSelection}. Computer chose ${computerSelection}`;
 
-  if (playerPick == pcPick) {
-    resultDisplay.textContent = `Draw. You both chose ${pcPick}`;
+  if (playerSelection == computerSelection) {
+    resultDisplay.textContent = `Draw. You both chose ${computerSelection}`;
+  } else if (
+    (playerSelection == 'rock' && computerSelection == 'paper') ||
+    (playerSelection == 'paper' && computerSelection == 'scissor') ||
+    (playerSelection == 'scissor' && computerSelection == 'rock')
+  ) {
+    resultDisplay.textContent = `You won. ${playerSelection} beats ${computerSelection}`;
+    playerScore++;
   } else {
-    resultDisplay.textContent = `Not draw`;
+    resultDisplay.textContent = `Computer won. ${computerSelection} beats ${playerSelection}`;
+    computerScore++;
   }
+  keepScore(playerScore, computerScore);
 }
 
 for (let i = 0; i < sections.length; i++) {
   sections[i].addEventListener('click', function (e) {
     let player = e.composedPath()[0].alt;
-    let pc = randomPick();
+    let pc = getComputerChoice();
 
-    displayChoices(player, pc);
+    playRound(player, pc);
   });
+}
+
+function keepScore(playerScore, computerScore) {
+  playerScoreDisplay.textContent = playerScore;
+  computerScoreDisplay.textContent = computerScore;
 }
