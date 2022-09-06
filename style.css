@@ -48,12 +48,16 @@ h3 {
 
 .message,
 .result,
-.score {
-  color: var(--primary-text);
+.score,
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 24px;
-  text-align: center;
-  margin: 6px;
+  color: var(--primary-text);
+  margin: 5px;
 }
+
 .score {
   display: flex;
   text-align: center;
@@ -98,4 +102,22 @@ img {
 }
 .won {
   color: var(--won);
+}
+.btn {
+  background-color: var(--secondary-accent);
+  border: 1px solid var(--divider);
+  border-radius: 28px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--primary-text);
+  transition: transform 0.2s;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+a,
+a:link,
+a:visited {
+  color: var(--primary-text);
 }
