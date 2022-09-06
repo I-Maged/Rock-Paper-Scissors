@@ -28,6 +28,7 @@ function playRound(playerSelection, computerSelection) {
     resultDisplay.textContent = `Computer won. ${computerSelection} beats ${playerSelection}`;
     computerScore++;
   }
+
   keepScore(playerScore, computerScore);
 }
 
@@ -43,4 +44,14 @@ for (let i = 0; i < sections.length; i++) {
 function keepScore(playerScore, computerScore) {
   playerScoreDisplay.textContent = playerScore;
   computerScoreDisplay.textContent = computerScore;
+
+  if (playerScore >= 5 || computerScore >= 5) {
+    if (playerScore > computerScore) {
+      playerScoreDisplay.classList.add('won');
+      computerScoreDisplay.classList.add('lost');
+    } else {
+      playerScoreDisplay.classList.add('lost');
+      computerScoreDisplay.classList.add('won');
+    }
+  }
 }

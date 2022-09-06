@@ -2,10 +2,12 @@
 
 :root {
   --primary-accent: #0097a7;
-  --secondary-accent: #009688;
+  --secondary-accent: #4287f5;
   --primary-text: #ffffff;
   --secondary-text: #757575;
   --divider: #bdbdbd;
+  --won: #0000ff;
+  --lost: #ff0000;
 }
 
 *,
@@ -82,12 +84,18 @@ img {
 }
 
 .footer {
-  background-color: var(--secondary-accent);
+  background-color: #4287f5;
   color: var(--primary-text);
   font-size: 16px;
   text-align: center;
   padding: 8px;
 }
 .heart {
-  color: #ff0000;
+  color: var(--lost);
+}
+.lost {
+  color: var(--lost);
+}
+.won {
+  color: var(--won);
 }
